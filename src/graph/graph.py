@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 class Graph:
     @staticmethod
-    def draw(dataTable, summaryTable, y1Param, cpus, isSummary, y2param):
+    def draw(dataTable, summaryTable, y1Param, cpus, isSummary, y2param, filename):
         data = pd.DataFrame(dataTable)
         summary = pd.DataFrame(summaryTable)
         x = range(0,data.index.stop)
@@ -27,5 +27,6 @@ class Graph:
             ax2.set_ylabel(y2param)
             ax2.legend(loc='upper right')
 
+        plt.title(filename.split("/")[-1])
         ax1.legend(loc='upper left')
         plt.show()

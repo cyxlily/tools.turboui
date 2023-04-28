@@ -27,7 +27,7 @@ def parse_file(file_path):
                 table_data[columns[i]] = table_data.get(columns[i], []) + [values[i]]
     return [data, summary]
 
-def draw(dataTable, summaryTable, y1Param, cpus, isSummary, y2param):
+def draw(dataTable, summaryTable, y1Param, cpus, isSummary, y2param, filename):
     data = pd.DataFrame(dataTable)
     summary = pd.DataFrame(summaryTable)
     x = range(0,data.index.stop)
@@ -50,6 +50,7 @@ def draw(dataTable, summaryTable, y1Param, cpus, isSummary, y2param):
         ax2.set_ylabel(y2param)
         ax2.legend(loc='upper right')
 
+    plt.title(filename.split("/")[-1])
     ax1.legend(loc='upper left')
     plt.show()
 
@@ -72,4 +73,4 @@ if not args.summary and not args.cpu:
     print("Missing arguments, pls use --help to see the options")
     sys.exit()
 
-draw(df, dfSummary, args.y1param, args.cpu.split(","), args.summary, args.y2param)
+draw(df, dfSummary, args.y1param, args.cpu.split(","), args.summary, args.y2param, args.filename)

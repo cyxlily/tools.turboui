@@ -151,7 +151,7 @@ class GraphApp(QWidget):
                 QMessageBox.critical(self, 'Error', 'Please select a Y1 Param')
                 return
             self.y1Param = self.y1ParamSelect.selectedItems()[0].text()
-            Graph.draw(self.data, self.summary, self.y1Param, ["Summary"], True, "None")
+            Graph.draw(self.data, self.summary, self.y1Param, ["Summary"], True, "None", self.file_name)
         else:   
             self.selected_cpus = []
             if not self.cpuSelect.selectedItems():
@@ -167,7 +167,7 @@ class GraphApp(QWidget):
             if(len(self.y2ParamSelect.selectedItems()) > 0):  
                 self.y2Param = self.y2ParamSelect.selectedItems()[0].text()    
             self.y1Param = self.y1ParamSelect.selectedItems()[0].text()
-            Graph.draw(self.data, self.summary, self.y1Param, self.selected_cpus, False, self.y2Param)
+            Graph.draw(self.data, self.summary, self.y1Param, self.selected_cpus, False, self.y2Param, self.file_name)
             
 if __name__ == '__main__':
     app = QApplication(sys.argv)

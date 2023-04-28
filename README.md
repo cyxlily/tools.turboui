@@ -66,6 +66,6 @@ Following are the arguments is takes
 
 **Example Command**
 ```
-python3 script/turboscript.py -y1 CoreTmp -c 0,6,7,1,2,3,4,5 example/turbostat_out.csv
+python3 script/turboscript.py -y1 Busy% -c 0,6,7,1,2,3,4,5 example/turbostat_out.csv
 ```
 
