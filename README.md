@@ -27,8 +27,8 @@ TurboUI has the following options in the GUI
 2. **Summary/CPU Button:** A toggle button where you can switch between CPU and summary views.
 3. **Display Graph Button:** The button displays graph
 4. **CPU List:** A multi select list where you can select multiple CPUs.
-5. **Y1 Param List:** A single select list of turbostat columns which can be mapped to CPUs and will be drawn on left y axis. 
-6. **Y2 Param List:** A single select list of turbostat columns which will draw the summary values on the right y axis.
+5. **Y Axis 1 Param List:** A single select list of turbostat columns which can be mapped to CPUs and will be drawn on left y axis. 
+6. **Y Axis 2 Param List:** A single select list of turbostat columns which will draw the summary values on the right y axis.
 
 ## Execution
 Follow the below steps to install requirements and launch the GUI tool
@@ -45,6 +45,7 @@ Use the following steps to build a executable out of this repository
 2. Install pyinstaller by executing `pip install pyinstaller`
 3. Execute `pyinstaller --noconsole --onefile index.py`
 4. This will generate a executable is the dist folder.
+
 **Note:** To generate a executable for windows, the above command has to be executed on windows and same for linux and mac.
 
 ## CLI Script
@@ -52,7 +53,7 @@ The CLI tool to draw the graph is placed in `script` folder and named `turboscri
 
 It can be executed as follows
 ```
-turboscript.py [-h] [-s] [-y1 Y1PARAM] [-c [CPU]] [-y2 [Y2PARAM]] filename
+python turboscript.py [-h] [-s] [-y1 Y1PARAM] [-c [CPU]] [-y2 [Y2PARAM]] filename
 ```
 
 Following are the arguments is takes
@@ -62,4 +63,9 @@ Following are the arguments is takes
 4. **-c [CPU]:** CPU is a command separated list of cpu numbers.
 5. **-y2 [Y2PARAM]:** Y2PARAM is a summary parameter to be drawn on right y axis.
 6. **filename:** This is a raw turbostat output
+
+**Example Command**
+```
+python3 script/turboscript.py -y1 CoreTmp -c 0,6,7,1,2,3,4,5 example/turbostat_out.csv
+```
 
