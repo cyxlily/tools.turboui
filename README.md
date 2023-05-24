@@ -34,9 +34,10 @@ TurboUI has the following options in the GUI
 Follow the below steps to install requirements and launch the GUI tool
 
 1. Clone the repository
-2. Execute `pip install -r requirements.txt`
-3. Execute `python index.py` to launch the GUI tool.
-4. You can use `example/turbostat_out.csv` for testing the tool incase you don't have any turbostat output.
+2. Install gui library pyqt using `sudo apt-get install python3-pyqt5`
+3. Execute `pip install -r requirements.txt` to install python dependencies.
+4. Execute `python3 index.py` to launch the GUI tool.
+5. You can use `example/turbostat_out.csv` for testing the tool incase you don't have any turbostat output.
 
 ## Building
 Use the following steps to build a executable out of this repository
