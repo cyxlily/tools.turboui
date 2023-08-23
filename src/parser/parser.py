@@ -11,7 +11,10 @@ class Parser:
         for i in range(len(lines)):
             line = lines[i].strip()
             if i==0 and not line.startswith('Core'):
-                return 0
+                if line.startswith('cpu0: Guessing tjMax '):
+                    continue
+                else:
+                    return 0
             if line.startswith('Core'):
                 table_data = {}
                 table_summary_data = {}
@@ -22,10 +25,9 @@ class Parser:
                     summary.append(table_summary_data)
                 values = line.split()
                 if values[0].startswith('-'):
-                    for i in range(len(values)):
-                        table_summary_data[columns[i]] = table_data.get(columns[i], []) + [values[i]]
-                    continue
-                for i in range(len(values)):
-                    table_data[columns[i]] = table_data.get(columns[i], []) + [values[i]]
+                    for j in range(len(values)):
+                        table_summary_data[columns[j]] = table_data.get(columns[j], []) + [values[j]]
+                for k in range(len(values)):
+                    table_data[columns[k]] = table_data.get(columns[k], []) + [values[k]]
         return [data, summary]
 

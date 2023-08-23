@@ -132,11 +132,9 @@ class GraphApp(QWidget):
         for item in self.df['CPU'][0]:
             self.cpuSelect.addItem(QListWidgetItem("CPU " + item))
         for item in self.df.columns:
-            if item == 'Avg_MHz' or item== 'Busy%' or item=='Bzy_MHz' or item=='TSC_MHz':
+            if item != 'Core' and item!= 'CPU':
                 self.y1ParamSelect.addItem(QListWidgetItem(item))
-        self.y2ParamSelect.addItem("None")
-        self.y2ParamSelect.addItem("CoreTmp")
-        self.y2ParamSelect.addItem("IRQ")
+                self.y2ParamSelect.addItem(item)
         self.y1Param = 'Avg_MHz'
 
     def addSummaryOptions(self):
@@ -174,4 +172,3 @@ if __name__ == '__main__':
     graph_app = GraphApp()
     graph_app.show()
     sys.exit(app.exec_())
-
